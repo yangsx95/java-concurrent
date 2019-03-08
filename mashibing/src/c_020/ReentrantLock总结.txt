@@ -1,0 +1,7 @@
+ReentrantLock 与 synchronized：
+
+1. ReentrantLock 可以完成 synchronized 的任何功能
+2. 但是ReentrantLock比 synchronized 更灵活，主要体现在如下几个方面
+3. tryLock 非阻塞锁，可以设置等待时间
+4. lockInterruptibly 可以中断等待
+5. 可以设置公平锁

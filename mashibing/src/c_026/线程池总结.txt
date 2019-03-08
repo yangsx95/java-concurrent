@@ -1,0 +1,7 @@
+Executor 用于执行某个任务
+ExecutorService 一个服务,在后台一直运行,等待任务抛入(submit),并执行,抛入的任务又分为两个类型: 
+    Callable 有返回值
+    Runnable 没有返回值
+Executors 是一个用于操作上面对象的工具类和工厂类
+ThreadPool 线程池
+Future 未来,未来的结果
