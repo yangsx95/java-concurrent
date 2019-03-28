@@ -7,8 +7,6 @@ import java.util.concurrent.TimeUnit;
  * 答：肯定可以
  */
 public class T {
-
-    private int count = 10;
     
     public synchronized void m1() {
         System.out.println(Thread.currentThread().getName() + " m1 start");
@@ -21,16 +19,18 @@ public class T {
     }
     
     public void m2() {
+        System.out.println(Thread.currentThread().getName() + " m2 start");
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println(Thread.currentThread().getName() + " m2 end");
     }
 
     public static void main(String[] args) {
         T t = new T();
-        new Thread(t::m1);
-        new Thread(t::m2);
+        new Thread(t::m1).start();
+        new Thread(t::m2).start();
     }
 }
