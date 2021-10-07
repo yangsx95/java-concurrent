@@ -1,2 +1,5 @@
 ### Jetbrains ###
-/idea
+.idea
+out
+*.iml
+*.class

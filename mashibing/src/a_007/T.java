@@ -13,11 +13,23 @@ public class T {
 
     int m() {
         count.addAndGet(1);
+        sleep1();
         count.addAndGet(2);
+        sleep1();
         count.addAndGet(3);
+        sleep1();
         count.addAndGet(4);
         return count.get();
     }
+
+    private void sleep1() {
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
         T t = new T();
@@ -27,9 +39,8 @@ public class T {
             threads.add(new Thread(() -> System.out.println(t.m())
             ));
         }
-        
+
         threads.forEach(Thread::start);
     }
 }
 
-// 跑出的结果始终是对的 ~~~
